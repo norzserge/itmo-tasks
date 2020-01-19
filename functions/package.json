@@ -1,0 +1,8 @@
+{
+  "name": "Functions",
+  "version": "1.0.0",
+  "description": "Homework for the topic functions",
+  "main": "src/index.js",
+  "author": "Sergey Metelskiy",
+  "license": "MIT"
+}
