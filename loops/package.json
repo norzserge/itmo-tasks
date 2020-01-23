@@ -1,0 +1,14 @@
+{
+  "name": "loops",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "repository": "https://github.com/norzserge/itmo-tasks.git",
+  "author": "norzserge",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
