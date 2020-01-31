@@ -1,0 +1,8 @@
+{
+  "name": "load-img",
+  "version": "1.0.0",
+  "description": "loading image from url",
+  "main": "src/index.js",
+  "author": "norzserge",
+  "license": "MIT"
+}
