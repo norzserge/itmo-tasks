@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bubbles</title>
+    <style>
+        .wrapper {
+            display: flex;
+        }
+        .sender, .recepient {
+            width: 400px; 
+            height: 200px;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+        .sender {
+            background-color: orangered;
+        }
+        .recepient {
+            background-color: palegreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sender" title="😏">
+            <h2>Sender (отправитель события)</h2>
+            <div  class="sender-content"></div> 
+        </div>
+        <div class="recepient" title="💘">
+            <h2>Recepient (получатель события)</h2>
+            <div class="recepient-content"></div></div>
+        </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+</html>
