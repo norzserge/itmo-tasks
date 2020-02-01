@@ -23,7 +23,6 @@ let invertRGB = (rgb) => {
 
 // устанавливаем новый background-color, выбранный в color-picker, и инвертированный цвет текста
 colorPicker.addEventListener('input', (e) => {
-    console.log(this);
     colorBlock.style.backgroundColor = e.target.value;
     /* 
     ** последующее действие так же можно выполнить без использования функции hexToRgb, воспользовавшись методом getComputedStyle()
@@ -36,8 +35,6 @@ colorPicker.addEventListener('input', (e) => {
 
 // изменяем background-color и цвет текста по ховеру
 colorBlock.addEventListener('mouseover', () => {
-    console.log(this);
-
     if(currentColor) {
         colorBlock.style.backgroundColor = invertRGB(currentColor);
         headerText.style.color = currentColor;
