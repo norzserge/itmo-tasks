@@ -1,10 +1,7 @@
 const url = "https://node-server.online/j/users/";
-let newItem = '',
+let list = document.querySelector('.list'),
+    newItem = '',
     newItemText = '';
-
-let list = document.createElement('ul');
-list.classList.add('list');
-document.body.prepend(list);
 
 let promise = fetch(url);
 promise.then(response => response.ok ? response.json() : console.log('Problem with response. Status code: ' + response.status))
