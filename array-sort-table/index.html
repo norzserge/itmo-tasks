@@ -4,18 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Частота вхождений</title>
+    <style>
+        .sort-table {
+            border-collapse: collapse;
+        }
+        .sort-table thead td {
+            font-weight: bold;
+        }
+        .sort-table tbody tr:nth-child(odd) {
+            background-color: #ebebeb;
+        }
+        .sort-table tbody tr:hover{
+            background-color: #dcdcdc;
+        }
+        .sort-table td {
+            text-align: center;
+            padding: 6px 8px;
+            border: 1px solid #ebebeb;
+        }
+        .wrapper {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-    <table class="sort-table">
-        <thead>
-            <tr>
-                <td>Количество вхождений</td>
-                <td>IP-адрес пользователя</td>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div class="wrapper">
+        <div>
+            <table class="sort-table">
+                <thead>
+                    <tr>
+                        <td>IP-адрес</td>
+                        <td>Посещений</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div>
+            <ul></ul>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
