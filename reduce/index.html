@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reduce</title>
+</head>
+<body>
+    <script>
+        /*
+        ** Дан массив с числами. Найдите сумму этих чисел.
+        */
+        let array = [1, 2, 7, 0, 4, 5, 6, -6, 0, -1];
+        let result1 = array.reduce((total, item) => {
+            return total + item;
+        }, 0);
+        console.log(`Сумма всех числе массива - ${result2}`);
+        
+        /* 
+        ** Дан массив с числами. Найдите сумму первых N элементов до первого нуля. Пример: [1, 2, 3, 0, 4, 5, 6] - 
+        ** суммируем первые 3 элемента, так как дальше стоит элемент с числом 0. 
+        */
+
+        let flag = true;
+        let result2 = array.reduce((total, item) => {
+            if(flag && item != 0) {
+                return total + item;
+            } else {
+                flag = false;
+                return total;
+            }
+        }, 0);
+        console.log(`Сумма чисел до нуля - ${result2}`);
+
+        /* РЕШЕНИЕ №2
+        var result = arr.reduce(function(sum, elem) {
+         	if (elem == 0) {
+         		answer = sum;
+         	} else {
+         		return sum + elem;
+            }
+        });
+        if(answer == undefined){answer = result}; 
+        */
+
+        /*
+        ** Дан массив с числами. Найдите сумму последних N элементов до первого нуля с конца. Пример: [1, 2, 3, 0, 4, 5, 6] - 
+        ** суммируем последние 3 элемента, так как дальше стоит элемент с числом 0.
+        */
+
+        let flag3 = true;
+        let result3 = array.reduceRight((sum, item) => {
+            if(flag3 && item !== 0) {
+                return sum + item;
+            } else {
+                flag3 = false;
+                return sum;
+            }
+        }, 0);
+        console.log(`Сумма чисел до нуля - ${result3}`);
+
+        /*
+        ** Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти.
+        */
+
+        let count = 0;
+        let result4 = array.reduce((sum, item) => {
+            sum <= 10 ? count++ : '';
+            return sum + item;
+        }, 0);
+        console.log(`${count} элементов нужно сложить, чтобы в сумме получилось больше 10-ти`);
+
+        /*
+        ** Дан массив с числами. Узнайте сколько элементов с конца массива надо сложить, чтобы в сумме получилось больше 10-ти.
+        */
+
+        let count2 = 0;
+        let result5 = array.reduceRight((sum, item) => {
+            sum <= 10 ? count2++ : '';
+            return sum + item;
+        }, 0);
+        console.log(`${count2} элементов нужно сложить, чтобы в сумме получилось больше 10-ти`);
+
+        /* 
+        ** Дан массив с числами. Оставьте в нем только положительные числа. Затем извлеките квадратный корень из этих чисел.
+        */
+
+        let result6 = array.filter((item) => item > 0);
+        console.log(`Квадртаный корень из суммы положительных чисел массива равен ${Math.sqrt(result6.reduce((sum, item) => sum + item))}`);
+
+        /*
+        ** Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+        */
+
+        let strings = ["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", "кришна", ":-O"];
+        let uniqueStrings = [];
+
+        let result7 = strings.reduce((acc, item) => {
+            acc[item] = (acc[item] || 0);
+            return acc;
+        }, []);
+
+        for (key in result7) {
+            uniqueStrings.push(key);   
+        }
+        console.log(uniqueStrings);
+
+    </script>
+</body>
+</html>
