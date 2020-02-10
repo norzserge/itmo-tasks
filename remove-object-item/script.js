@@ -1,7 +1,6 @@
 const url = "https://kodaktor.ru/j/users";
 let list = document.querySelector('.list');
 let listItems = '';
-let arrayFind = [];
 
 let promise = fetch(url);
 promise.then(response => response.ok ? response.json() : console.log('Problem with response. Status code: ' + response.status))
@@ -10,11 +9,9 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
     //    listItems += `<li>${element.login}</li>`;
     //    list.innerHTML = listItems;
         if(element.login === "myuserlogin@my.spb.ru") {
-            delete element;
+            delete result.users[index];
         }
-        console.log(element);
-        // arrayFind.push(element.login);
     });
+    console.log(result.users);
 })
 .catch(err => console.error(err));
-// console.log(arrayFind);
