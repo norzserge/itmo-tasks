@@ -1,0 +1,20 @@
+{
+    "person": {
+        "fullName": {
+            "name": "Sergey",
+            "surname": "Metelskiy"
+        },
+        "profession": "Frontend-developer"
+    },
+    "skills": {
+        "htmlCoding": ["HTML", "CSS", "Flex", "Grid"],
+        "preprocessor": ["SASS", "Less", "Pug"],
+        "language": "Javascript",
+        "lib": "jQuery",
+        "framework": "VueJS",
+        "GIT": ["GitHub", "BitBucket"],
+        "buildSystem": ["Gulp", "Webpack"],
+        "graphic": ["Web design", "Adobe Photoshop"],
+        "CMS": ["WordPress", "Joomla"]
+    }
+} 
