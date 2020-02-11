@@ -4,6 +4,7 @@
             "name": "Sergey",
             "surname": "Metelskiy"
         },
+        "age": 35,
         "profession": "Frontend-developer"
     },
     "skills": {

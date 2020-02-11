@@ -2,6 +2,8 @@
 
 - Создайте JSON-объект
 - Провалидируйте его на https://jsonlint.com/
-- Разработайте или сгенерируйте схему для него с дальнейшей валидацией в https://www.jsonschemavalidator.net/
+- Разработайте или сгенерируйте схему для него с дальнейшей валидацией в https://www.jsonschemavalidator.net/ или на https://jsonschema.net/ (последний вариант более user friendly)
 
-Готовый JSON так же расположен по адресу: https://kodaktor.ru/j/5a64197
+Так же JSON- объекты и схема продублированы на:
+- https://kodaktor.ru/j/5a64197 
+- https://kodaktor.ru/j/74afc4b

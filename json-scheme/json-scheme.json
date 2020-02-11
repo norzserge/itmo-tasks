@@ -1,0 +1,222 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+      "person",
+      "skills"
+    ],
+    "properties": {
+      "person": {
+        "$id": "#/properties/person",
+        "type": "object",
+        "title": "The Person Schema",
+        "required": [
+          "fullName",
+          "age",
+          "profession"
+        ],
+        "properties": {
+          "fullName": {
+            "$id": "#/properties/person/properties/fullName",
+            "type": "object",
+            "title": "The Fullname Schema",
+            "required": [
+              "name",
+              "surname"
+            ],
+            "properties": {
+              "name": {
+                "$id": "#/properties/person/properties/fullName/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
+                "default": "",
+                "examples": [
+                  "Sergey"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "surname": {
+                "$id": "#/properties/person/properties/fullName/properties/surname",
+                "type": "string",
+                "title": "The Surname Schema",
+                "default": "",
+                "examples": [
+                  "Metelskiy"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "age": {
+            "$id": "#/properties/person/properties/age",
+            "type": "integer",
+            "title": "The Age Schema",
+            "default": 0,
+            "examples": [
+              35
+            ]
+          },
+          "profession": {
+            "$id": "#/properties/person/properties/profession",
+            "type": "string",
+            "title": "The Profession Schema",
+            "default": "",
+            "examples": [
+              "Frontend-developer"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      },
+      "skills": {
+        "$id": "#/properties/skills",
+        "type": "object",
+        "title": "The Skills Schema",
+        "required": [
+          "htmlCoding",
+          "preprocessor",
+          "language",
+          "lib",
+          "framework",
+          "GIT",
+          "buildSystem",
+          "graphic",
+          "CMS"
+        ],
+        "properties": {
+          "htmlCoding": {
+            "$id": "#/properties/skills/properties/htmlCoding",
+            "type": "array",
+            "title": "The Htmlcoding Schema",
+            "items": {
+              "$id": "#/properties/skills/properties/htmlCoding/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "HTML",
+                "CSS",
+                "Flex",
+                "Grid"
+              ],
+              "pattern": "^(.*)$"
+            }
+          },
+          "preprocessor": {
+            "$id": "#/properties/skills/properties/preprocessor",
+            "type": "array",
+            "title": "The Preprocessor Schema",
+            "items": {
+              "$id": "#/properties/skills/properties/preprocessor/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "SASS",
+                "Less",
+                "Pug"
+              ],
+              "pattern": "^(.*)$"
+            }
+          },
+          "language": {
+            "$id": "#/properties/skills/properties/language",
+            "type": "string",
+            "title": "The Language Schema",
+            "default": "",
+            "examples": [
+              "Javascript"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "lib": {
+            "$id": "#/properties/skills/properties/lib",
+            "type": "string",
+            "title": "The Lib Schema",
+            "default": "",
+            "examples": [
+              "jQuery"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "framework": {
+            "$id": "#/properties/skills/properties/framework",
+            "type": "string",
+            "title": "The Framework Schema",
+            "default": "",
+            "examples": [
+              "VueJS"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "GIT": {
+            "$id": "#/properties/skills/properties/GIT",
+            "type": "array",
+            "title": "The Git Schema",
+            "items": {
+              "$id": "#/properties/skills/properties/GIT/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "GitHub",
+                "BitBucket"
+              ],
+              "pattern": "^(.*)$"
+            }
+          },
+          "buildSystem": {
+            "$id": "#/properties/skills/properties/buildSystem",
+            "type": "array",
+            "title": "The Buildsystem Schema",
+            "items": {
+              "$id": "#/properties/skills/properties/buildSystem/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "Gulp",
+                "Webpack"
+              ],
+              "pattern": "^(.*)$"
+            }
+          },
+          "graphic": {
+            "$id": "#/properties/skills/properties/graphic",
+            "type": "array",
+            "title": "The Graphic Schema",
+            "items": {
+              "$id": "#/properties/skills/properties/graphic/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "Web design",
+                "Adobe Photoshop"
+              ],
+              "pattern": "^(.*)$"
+            }
+          },
+          "CMS": {
+            "$id": "#/properties/skills/properties/CMS",
+            "type": "array",
+            "title": "The Cms Schema",
+            "items": {
+              "$id": "#/properties/skills/properties/CMS/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "WordPress",
+                "Joomla"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        }
+      }
+    }
+  }
