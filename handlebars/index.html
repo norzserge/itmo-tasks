@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars</title>
+    <style>
+        .table-wrapper {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 3px double;
+            padding: 10px;
+        }
+        .table thead div {
+            padding: 5px 10px;
+            background-color: #5a5a5a;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .table thead td {
+            width: 170px;
+        }
+        .table tbody td {
+            padding: 5px 10px;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-wrapper">
+        <table class="table"></table>
+    </div>
+    <script id="template" type="text/x-handlebars-template">
+        <thead>
+            <tr>
+                <td><div>Валюта</div></td>
+                <td><div>Продажа</div></td>
+                <td><div>Покупка</div></td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each this}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{sell}}</td>
+                    <td>{{buy}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </script>
+    <script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
