@@ -1,7 +1,7 @@
 let url = 'https://kodaktor.ru/cart_data.json';
 let productList = document.querySelector('.product-list');
 let productItems = '';
-let dragndropArea = document.querySelector('.dragndrop-area');
+let dropArea = document.querySelector('.dragndrop-area');
 
 let promise = fetch(url);
 promise.then(response => response.ok ? response.json() : console.log('Problem with response. Status code: ' + response.status))
@@ -21,10 +21,22 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
     productList.innerHTML = productItems;
 
     document.querySelectorAll('.product-info').forEach(element => {
+        /* 
+        ** dragstart - пользователь начинает перетаскивание элемента
+        ** dataTransfer.setData(format, data): добавляет данные в нужном формате
+        */
         element.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', e.target.textContent));
     });
 })
 .catch(err => console.error(err));
 
-dragndropArea.addEventListener('dragover', e => e.preventDefault());
-dragndropArea.addEventListener('drop', e => e.target.textContent += e.dataTransfer.getData('text/plain'));
+// dragover - курсор мыши наведен на элемент (drop area) при перетаскивании
+dropArea.addEventListener('dragover', e => e.preventDefault());
+// dropArea.addEventListener('dragover', e => {
+//     e.preventDefault();
+//     e.target.style.background = '#d1ffd3';
+// });
+// dropArea.addEventListener('dragleave', e => e.target.style.background = '#fff');
+
+// drop - происходит drop элемента
+dropArea.addEventListener('drop', e => e.target.textContent += e.dataTransfer.getData('text/plain'));
