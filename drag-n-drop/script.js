@@ -21,10 +21,7 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
     productList.innerHTML = productItems;
 
     document.querySelectorAll('.product-info').forEach(element => {
-        /* 
-        ** dragstart - пользователь начинает перетаскивание элемента
-        ** dataTransfer.setData(format, data): добавляет данные в нужном формате
-        */
+        // dragstart - пользователь начинает перетаскивание элемента
         element.addEventListener('dragstart', e => {
             // setData(format, data): добавляет данные в нужном формате
             e.dataTransfer.setData('text/plain', e.target.textContent);
@@ -42,7 +39,6 @@ dropArea.addEventListener('dragover', e => e.preventDefault());
 //     e.target.style.background = '#d1ffd3';
 // });
 // dropArea.addEventListener('dragleave', e => e.target.style.background = '#fff');
-
 
 // drop - происходит drop элемента
 dropArea.addEventListener('drop', e => e.target.textContent += e.dataTransfer.getData('text/plain'));
