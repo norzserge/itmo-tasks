@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag'n'drop cart</title>
+    <title>Dragndrop cart</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <ul class="product-list"></ul>
+    <div class="dragndrop-wrapper">
+        <div class="dragndrop-area"></div>
+        <div class="dragndrop-controls">
+            <button class="clear-cart">Очистить корзину</button>
+            <div class="budget">
+                <div class="items-in-cart">Товаров в корзине: <span class="items-value"></span></div>
+                <div class="budget-balance">Остаток: <span class="balance-value"></span></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
