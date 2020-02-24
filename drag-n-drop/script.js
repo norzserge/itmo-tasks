@@ -25,7 +25,12 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
         ** dragstart - пользователь начинает перетаскивание элемента
         ** dataTransfer.setData(format, data): добавляет данные в нужном формате
         */
-        element.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', e.target.textContent));
+        element.addEventListener('dragstart', e => {
+            // setData(format, data): добавляет данные в нужном формате
+            e.dataTransfer.setData('text/plain', e.target.textContent);
+            // setDragImage(element, x, y) - устанавливает изображение для перетаскивания с координатами курсора (0, 0 — левый верхний угол)
+            e.dataTransfer.setDragImage(e.target, 100, 100);
+        });
     });
 })
 .catch(err => console.error(err));
@@ -37,6 +42,7 @@ dropArea.addEventListener('dragover', e => e.preventDefault());
 //     e.target.style.background = '#d1ffd3';
 // });
 // dropArea.addEventListener('dragleave', e => e.target.style.background = '#fff');
+
 
 // drop - происходит drop элемента
 dropArea.addEventListener('drop', e => e.target.textContent += e.dataTransfer.getData('text/plain'));
