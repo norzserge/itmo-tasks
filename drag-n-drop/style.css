@@ -36,11 +36,16 @@ body {
     width: 520px;
 }
 .dragndrop-area {
+    display: flex;
+    padding-top: 10px;
     height: 300px;
     margin-bottom: 15px;
     border-radius: 5px;
     background-color: #fff;
     border: 2px dashed #949494;
+}
+.dragndrop-area .product-info-inner:not(:last-child) {
+    margin-right: 30px;
 }
 .dragndrop-controls {
     display: flex;
@@ -52,6 +57,6 @@ body {
 .items-in-cart {
     margin-right: 10px;
 }
-.product-info {
+.product {
     cursor: move;
 }
