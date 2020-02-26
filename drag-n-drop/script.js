@@ -9,7 +9,8 @@ let productItems = '',
     clearCartBtn = document.querySelector('.clear-cart'),
     inputBudget = document.querySelector('.budget-value'),
     setBudgetBtn = document.querySelector('.set-budget-btn'),
-    budgetBalance = document.querySelector('.balance-value');
+    budgetBalance = document.querySelector('.balance-value'),
+    productsListInCart = dropArea.querySelectorAll('.product-inner');
 
 let promise = fetch(url);
 promise.then(response => response.ok ? response.json() : console.log('Problem with response. Status code: ' + response.status))
@@ -52,7 +53,7 @@ dropArea.addEventListener('drop', e => {
     let balance = 0;
     
     dropArea.innerHTML += e.dataTransfer.getData('text/plain');
-    dropArea.querySelectorAll('.product-inner').forEach((element) => {
+    productsListInCart.forEach((element) => {
         balance += parseInt(element.querySelector('.price-value').innerText);
     });
 
