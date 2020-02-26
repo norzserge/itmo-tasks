@@ -52,6 +52,7 @@ body {
 .dragndrop-controls {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .budget, .products-in-cart {
     display: flex;
