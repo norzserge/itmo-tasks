@@ -1,11 +1,15 @@
 const url = 'https://kodaktor.ru/cart_data.json';
-let productList = document.querySelector('.product-list'),
-    productItems = '',
-    dropZone = document.querySelector('.dragndrop-area'),
+let productItems = '',
     currentElement = null,
-    droppedElementArray = [],
+    budgetValue = null,
     counter = 0,
-    itemsInCart = document.querySelector('.items-value');
+    productList = document.querySelector('.product-list'),
+    dropArea = document.querySelector('.dragndrop-area'),
+    itemsInCart = document.querySelector('.items-value'),
+    clearCartBtn = document.querySelector('.clear-cart'),
+    inputBudget = document.querySelector('.budget-value'),
+    setBudgetBtn = document.querySelector('.set-budget-btn'),
+    budgetBalance = document.querySelector('.balance-value');
 
 let promise = fetch(url);
 promise.then(response => response.ok ? response.json() : console.log('Problem with response. Status code: ' + response.status))
@@ -41,19 +45,34 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
 .catch(err => console.error(err));
 
 // dragover - курсор мыши наведен на элемент (drop area) при перетаскивании
-dropZone.addEventListener('dragover', e => e.preventDefault());
+dropArea.addEventListener('dragover', e => e.preventDefault());
 
 // drop - происходит drop элемента
-dropZone.addEventListener('drop', e => {
-    counter++;
-    itemsInCart.innerText = counter;
+dropArea.addEventListener('drop', e => {
+    let balance = 0;
     
-    if(droppedElementArray.includes(currentElement)) {
-        // dropZone.querySelectorAll('.product-inner').forEach((element, index) => {
-        //     console.log(index);
-        // });
+    dropArea.innerHTML += e.dataTransfer.getData('text/plain');
+    dropArea.querySelectorAll('.product-inner').forEach((element) => {
+        balance += parseInt(element.querySelector('.price-value').innerText);
+    });
+
+    if(budgetValue > balance) {
+        budgetBalance.innerText = budgetValue - balance;
+        counter++;
+        itemsInCart.innerText = counter;
     } else {
-        droppedElementArray.push(currentElement);
-        dropZone.innerHTML += e.dataTransfer.getData('text/plain');
+        console.log('Ваш бюджет превышен');
     }
+});
+
+setBudgetBtn.addEventListener('click', () => {
+    budgetValue = inputBudget.value;
+    budgetBalance.innerText = budgetValue;
+});
+
+clearCartBtn.addEventListener('click', () => {
+    dropArea.innerHTML = '';
+    droppedElementArray = [];
+    counter = 0;
+    itemsInCart.innerText = counter;
 });

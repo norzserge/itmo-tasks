@@ -37,6 +37,8 @@ body {
 }
 .dragndrop-area {
     display: flex;
+    overflow: auto;
+    flex-wrap: wrap;
     padding-top: 10px;
     height: 300px;
     margin-bottom: 15px;
@@ -44,14 +46,14 @@ body {
     background-color: #fff;
     border: 2px dashed #949494;
 }
-.dragndrop-area .product-info-inner:not(:last-child) {
-    margin-right: 30px;
+.dragndrop-area .product-inner:not(:nth-child(3n)) {
+    margin-right: 20px;
 }
 .dragndrop-controls {
     display: flex;
     justify-content: space-between;
 }
-.budget {
+.budget, .products-in-cart {
     display: flex;
 }
 .items-in-cart {
@@ -59,4 +61,10 @@ body {
 }
 .product {
     cursor: move;
+}
+.budget-value {
+    width: 40px;
+    margin-right: 5px;
+    border-radius: 2px;
+    border: 1px solid #c3c3c3;
 }
