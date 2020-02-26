@@ -1,6 +1,9 @@
 body {
     background-color: #eee;;
 }
+button {
+    cursor: pointer;
+}
 .page-content {
     display: flex;
     flex-direction: column;
@@ -10,7 +13,6 @@ body {
     display: flex;
     list-style: none;
     padding: 0;
-    margin-bottom: 30px; 
 }
 .product-list li:not(:last-child) {
     margin-right: 30px;
@@ -27,9 +29,6 @@ body {
 }
 .product-name, .product-price {
     margin: 0 0 10px 0;
-    text-align: center;
-}
-.add-to-cart-btn {
     text-align: center;
 }
 .dragndrop-wrapper {

@@ -6,7 +6,7 @@ let productItems = '',
     isBudgetDetermined = false,
     productList = document.querySelector('.product-list'),
     dropArea = document.querySelector('.dragndrop-area'),
-    itemsInCart = document.querySelector('.items-value').innerText,
+    itemsInCart = document.querySelector('.items-value'),
     clearCartBtn = document.querySelector('.clear-cart'),
     inputBudget = document.querySelector('.budget-value'),
     budgetValueText = document.querySelector('.budget-value-text'),
@@ -24,10 +24,8 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
                         <div class="product-img"><img src="./img/${key}.jpg"></div>
                         <div class="product-name">${key}</div>
                         <div class="product-price">Цена: <span class="price-value">${result[key]}</span> $</div>
-                        <div class="count"></div>
                     </div>
                 </div>
-                <div class="add-to-cart-btn"><button>Добавить в корзину</button></div>
             </li>
         `;
     }
@@ -66,7 +64,7 @@ dropArea.addEventListener('drop', e => {
         });
         budgetBalance.innerText = budgetValue - balance;
         counter++;
-        itemsInCart = counter;
+        itemsInCart.innerText = counter;
     }
 });
 
