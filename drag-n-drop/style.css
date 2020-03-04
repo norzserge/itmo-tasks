@@ -41,9 +41,14 @@ button {
     padding-top: 10px;
     height: 300px;
     margin-bottom: 15px;
+    transition: all 0.3s ease;
     border-radius: 5px;
     background-color: #fff;
     border: 2px dashed #949494;
+}
+.drop-area-active {
+    border-color: rgb(16, 189, 24);
+    background-color: #f1f9f1;
 }
 .dragndrop-area .product-inner:not(:nth-child(3n)) {
     margin-right: 20px;

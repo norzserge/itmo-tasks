@@ -45,13 +45,28 @@ promise.then(response => response.ok ? response.json() : console.log('Problem wi
 })
 .catch(err => console.error(err));
 
-// dragover - курсор мыши наведен на элемент (drop area) при перетаскивании
-dropArea.addEventListener('dragover', e => e.preventDefault());
+/* 
+** dragover / dragenter - требуется добавить функции для завершения процесса перетаскивания — определить, что должно случиться с элементами, когда курсор будет отпущен
+** dragover - событие срабатывает каждые несколько сотен милисекунд, когда перемещаемый элемент оказывается над зоной, принимающей перетаскиваемые элементы
+*/
+dropArea.addEventListener('dragover', e => {
+    e.preventDefault();
+});
 
-// drop - происходит drop элемента
+// dragenter - срабатывает, когда перемещаемый элемент попадает на элемент-назначение. Обработчик этого события показывает, что элемент находится над объектом на который он может быть перенесен.
+dropArea.addEventListener('dragenter', e => {
+    dropArea.classList.add('drop-area-active');
+});
+
+// dragleave - событие запускается в момент перетаскивания, когда курсор мыши выходит за пределы элемента. 
+dropArea.addEventListener('dragleave', e => {
+    dropArea.classList.remove('drop-area-active');
+});
+
+// drop - происходит "отпускание" элемента
 dropArea.addEventListener('drop', e => {
     let balance = 0;
-
+    dropArea.classList.remove('drop-area-active');
     // Если остаток меньше цены dragstart-елемента - выдаем сообщение о превышении бюджета
     if (!isBudgetDetermined) {
         alert('Укажите Ваш бюджет');
