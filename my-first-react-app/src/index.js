@@ -1,43 +1,39 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-// import "./index.css";
+import "./styles.css";
 
 class ChildComponent extends React.Component {
-	state = {
-		value1: '',
-	}
-
-	change = e => {
-		this.setState({ value1: e.target.value });
-	}
-
-	render() {
-		return (
-			<div className="first-component">
-				<h2>Child component</h2>
-				<input type="text" onChange={this.change} value={this.props.valueOfFirstElement}/>
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div className="child-component">
+        <h3>Child component</h3>
+        <input
+          type="text"
+          value={this.props.parentValue}
+          onChange={this.props.changeProp}
+        />
+      </div>
+    );
+  }
 }
 
 class ParentComponent extends React.Component {
   state = {
-		value2: '',
+    value: ""
   };
 
   change = e => {
-		this.setState({ value2: e.target.value });
+    this.setState({ value: e.target.value });
   };
 
   render() {
-		return (
-			<div className="some-class">
-				<h2>Parent component</h2>
-				<input type="text" onChange={this.change} />
-				<ChildComponent valueOfFirstElement={this.state.value2} />
-			</div>
-		)
+    return (
+      <div className="parent-component">
+        <h3>Parent component</h3>
+        <input type="text" onChange={this.change} value={this.state.value} />
+        <ChildComponent changeProp={this.change} parentValue={this.state.value} />
+      </div>
+    );
   }
 }
 
