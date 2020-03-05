@@ -65,6 +65,7 @@ dropArea.addEventListener('dragleave', e => {
 
 // drop - происходит "отпускание" элемента
 dropArea.addEventListener('drop', e => {
+    e.preventDefault();
     let balance = 0;
     dropArea.classList.remove('drop-area-active');
     // Если остаток меньше цены dragstart-елемента - выдаем сообщение о превышении бюджета
