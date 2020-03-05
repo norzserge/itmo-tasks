@@ -4,3 +4,5 @@
 
 Решение находится по ссылке https://norzserge.github.io/itmo-tasks/react-fetch/build/index.html
 ** Важно! Для работы скрипта необходимо разблокировать контент на вкладке браузера. **
+
+Исходники: https://github.com/norzserge/itmo-tasks/tree/master/react-fetch
