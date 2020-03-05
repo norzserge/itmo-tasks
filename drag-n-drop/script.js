@@ -55,11 +55,13 @@ dropArea.addEventListener('dragover', e => {
 
 // dragenter - срабатывает, когда перемещаемый элемент попадает на элемент-назначение. Обработчик этого события показывает, что элемент находится над объектом на который он может быть перенесен.
 dropArea.addEventListener('dragenter', e => {
+    e.preventDefault();
     dropArea.classList.add('drop-area-active');
 });
 
 // dragleave - событие запускается в момент перетаскивания, когда курсор мыши выходит за пределы элемента. 
 dropArea.addEventListener('dragleave', e => {
+    e.preventDefault();
     dropArea.classList.remove('drop-area-active');
 });
 
