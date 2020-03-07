@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO on Vue.js</title>
+    <script src="vue.js"></script>
+    <style>
+      .even:nth-child(even) {
+        color: #4fc54f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <list-item
+          v-for="(item, index) in list"
+          :key="index"
+          :item-text="item"
+        ></list-item>
+      </ul>
+      <input v-model="text" ref="textfield" />
+      <button @click="addItem">Add item</button>
+    </div>
+    <script>
+      Vue.component("list-item", {
+        props: ["itemText"],
+        data: function() {
+          return {
+            isEven: true
+          };
+        },
+        template: "<li :class='{ even: isEven }'>{{itemText}}</li >"
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          list: [],
+          text: "",
+          url: "http://kodaktor.ru/j/tasklist"
+        },
+        methods: {
+          addItem() {
+            this.list.push(this.text);
+            this.$refs.textfield.value = "";
+            this.text = "";
+          },
+          loadData: function() {
+            let promise = fetch(this.url);
+            promise
+              .then(response =>
+                response.ok
+                  ? response.json()
+                  : console.log(
+                      "Problem with response. Status code: " + response.status
+                    )
+              )
+              .then(result => {
+                this.list = [...result.list];
+              })
+              .catch(err => console.error(err));
+          }
+        },
+        created: function() {
+          this.loadData();
+        }
+      });
+    </script>
+  </body>
+</html>
