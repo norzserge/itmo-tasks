@@ -1,1 +1,0 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,GACE,eACF,CAEA,iBACE,eACF","file":"main.8e0e20d2.chunk.css","sourcesContent":["h3 {\r\n  margin: 0 0 10px 0;\r\n}\r\n\r\n.child-component {\r\n  margin-top: 20px;\r\n}\r\n"]}
