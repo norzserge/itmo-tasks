@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color mixer on Vue.js</title>
+    <script src="vue.js"></script>
+    <style>
+      html,
+      body,
+      #app,
+      .wrapper {
+        height: 100%;
+        margin: 0;
+      }
+      #app,
+      .wrapper {
+        width: 100%;
+      }
+      .wrapper {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 20px 0;
+      }
+      code {
+        padding: 3px 6px;
+        border-radius: 2px;
+        background: #4e4e4e;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper" :style="{ 'background-color': setColor }">
+        <h1>Микшер цветов RGB на Vue.js</h1>
+        <range
+          :input-value="r"
+          value-name="R"
+          @userchange="defineValueR"
+        ></range>
+        <range
+          :input-value="g"
+          value-name="G"
+          @userchange="defineValueG"
+        ></range>
+        <range
+          :input-value="b"
+          value-name="B"
+          @userchange="defineValueB"
+        ></range>
+        <p>Текущий цвет фона <code>background-color: {{setColor}}</code></p>
+      </div>
+    </div>
+    <script>
+      Vue.component("range", {
+        props: ["inputValue", "valueName"],
+        data: function() {
+          return {
+            newValue: this.inputValue
+          };
+        },
+        template: `<div>
+            <span>{{valueName}}</span>
+            <input type="text" v-model="newValue" />
+            <input type="range" min="0" max="255" v-model="newValue" @input="onUserChange" />
+          </div>`,
+        methods: {
+          onUserChange: function(e) {
+            this.$emit("userchange", e.target.value);
+          }
+        }
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          r: 255,
+          g: 255,
+          b: 255
+        },
+        computed: {
+          setColor: function() {
+            return `rgb(${this.r}, ${this.g}, ${this.b})`;
+          }
+        },
+        methods: {
+          defineValueR: function(value) {
+            this.r = value;
+          },
+          defineValueG: function(value) {
+            this.g = value;
+          },
+          defineValueB: function(value) {
+            this.b = value;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
