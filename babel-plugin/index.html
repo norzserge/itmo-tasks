@@ -12,6 +12,21 @@
         (1) Сообщаем скрипту о том, что будет использован код babel (type="text/babel")
         (2) В data атрибуте прописываем название плагина, который хотим применить к выражению do {...} 
     -->
+    <code>
+      <script type="text/babel" data-plugins="transform-do-expressions">
+        {
+          const x = 19;
+          const a = do {
+            if (x > 18) {
+              ("разрешено");
+            } else {
+              ("запрещено");
+            }
+          };
+          document.querySelector("h1").textContent = a;
+        }
+      </script>
+    </code>
     <script type="text/babel" data-plugins="transform-do-expressions">
       {
         const x = 19;
