@@ -12,23 +12,22 @@
         (1) Сообщаем скрипту о том, что будет использован код babel (type="text/babel")
         (2) В data атрибуте прописываем название плагина, который хотим применить к выражению do {...} 
     -->
-    <code>
-      <script type="text/babel" data-plugins="transform-do-expressions">
-        // 1. Сообщаем скрипту о том, что будет использован код babel (type="text/babel")
-        // 2. В data атрибуте прописываем название плагина, который хотим применить к выражению do {...}
-        {
-          const x = 19;
-          const a = do {
-            if (x > 18) {
-              ("разрешено");
-            } else {
-              ("запрещено");
-            }
-          };
-          document.querySelector("h1").textContent = a;
-        }
-      </script>
-    </code>
+    <pre>
+1. Подчключаем babel через CDN src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"
+2. Сообщаем скрипту о том, что будет использован код babel (type="text/babel") 
+3. В data атрибуте прописываем название плагина, который хотим применить к выражению do {...}
+script type="text/babel" data-plugins="transform-do-expressions"
+
+const x = 19;
+const a = do {
+    if (x > 18) {
+        ("разрешено");
+    } else {
+        ("запрещено");
+    }
+};
+document.querySelector("h1").textContent = a;
+    </pre>
     <script type="text/babel" data-plugins="transform-do-expressions">
       {
         const x = 19;
