@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Промисификация - async / await</title>
+  </head>
+  <body>
+    <script>
+      const prTimer = (sec) =>
+        new Promise((resolve, reject) => {
+          if (!isNaN(sec) && sec >= 0) {
+            setTimeout(() => resolve(console.log("resolved")), sec * 1000);
+          } else {
+            return reject("rejected");
+          }
+        }).catch((e) => console.log(e));
+      (async () => {
+        await prTimer(-2);
+        await prTimer(2);
+        await prTimer("a");
+      })();
+    </script>
+  </body>
+</html>
