@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch with async</title>
+  </head>
+  <body>
+    <div class="page">
+      <input type="text" class="textfield" /><button class="submit-button">
+        Отправить
+      </button>
+    </div>
+    <script>
+      const submitButton = document.querySelector(".submit-button");
+      const textfield = document.querySelector(".textfield");
+      submitButton.addEventListener("click", async () => {
+        console.log("Запрос отправлен...");
+        await fetch(`https://kodaktor.ru/api/rv/${textfield.value}`)
+          .then((response) => response.text())
+          .then((result) => {
+            let resultString = result.match(/(<span.*?>)(.*?)(<\/span>)/);
+            let reverseValue = resultString[2];
+            console.log(`Ревертнутое значение: ${reverseValue}`);
+          })
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>
