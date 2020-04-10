@@ -15,15 +15,25 @@
       const submitButton = document.querySelector(".submit-button");
       const textfield = document.querySelector(".textfield");
       submitButton.addEventListener("click", async () => {
-        console.log("Запрос отправлен...");
-        await fetch(`https://kodaktor.ru/api/rv/${textfield.value}`)
+        console.log("Sending request...");
+        // First request
+        const firstRequest = await fetch(
+          `https://kodaktor.ru/api/rv/${textfield.value}`
+        )
           .then((response) => response.text())
-          .then((result) => {
-            let resultString = result.match(/(<span.*?>)(.*?)(<\/span>)/);
-            let reverseValue = resultString[2];
-            console.log(`Ревертнутое значение: ${reverseValue}`);
-          })
+          .then((result) => result.match(/(<span.*?>)(.*?)(<\/span>)/))
+          .then((reverseValue) => reverseValue[2])
           .catch((err) => console.log(err));
+        console.log(`Reverse value: ${firstRequest}`);
+        // Second request
+        const secondRequest = await fetch(
+          `https://kodaktor.ru/api/rp/${firstRequest}`
+        )
+          .then((response) => response.text())
+          .then((result) => result.match(/(<span.*?>)(.*?)(<\/span>)/))
+          .then((doubleValue) => doubleValue[2])
+          .catch((err) => console.log(err));
+        console.log(`Double value: ${secondRequest}`);
       });
     </script>
   </body>
