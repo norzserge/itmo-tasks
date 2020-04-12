@@ -1,4 +1,4 @@
-const Timer = require("timerpromise");
+const Timer = require("./node_modules/timerpromise");
 
 (async () => {
   console.time("Total timer");
