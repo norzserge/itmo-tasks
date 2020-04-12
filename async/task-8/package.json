@@ -1,0 +1,11 @@
+{
+  "name": "timerpromise",
+  "version": "1.0.0",
+  "description": "task 8",
+  "main": "index.js",
+  "author": "norzserge",
+  "license": "MIT",
+  "dependencies": {
+    "timerpromise": "^1.0.0"
+  }
+}
