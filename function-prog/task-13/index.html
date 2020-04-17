@@ -7,7 +7,8 @@
   </head>
   <body>
     <script>
-      // Решение в репозитории не соответствует задае, т.к. требуется сервер. Скрипт ниже позволяет вывести текст title в h1 b поменять его, передав параметр в IIFE функцию
+      // Решение в репозитории не соответствует задаче, т.к. требуется сервер. 
+      // Скрипт ниже позволяет вывести текст title в h1 и поменять его, передав параметр в IIFE функцию
       ((someText)=>{
         document.body.appendChild(document.createElement('h2')).appendChild(document.createTextNode(someText ? someText : document.querySelector('title').textContent));
       })();
