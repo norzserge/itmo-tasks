@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script type="module"></script>
-  </body>
+<html>
+ <head>
+     <script src="/j/out"></script>
+    <title>Композиция (func_task)</title>
+    <meta charset="utf-8">
+</head>
+ <body>
+    <script src="/j/dblttl"></script>
+   <script type="module">   
+     import compose from "/j/goss_compose";
+     const qv = x => x * x;
+     const sc = x => x + 1;
+     Out.log(qv(sc((5))))         /* 36 */
+        .log(sc(qv((5))))         /* 26 */
+     	.log(compose(qv,sc)(5))
+        .log(compose(sc,qv)(5));
+ </script></body>
 </html>
