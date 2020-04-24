@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript</title>
+    <meta charset="utf-8" />
+    <script src="/j/out"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <h4 id="author" title="GossJS">Метельский Сергей</h4>
+    <script type="text/babel">
+      console.clear();
+
+      class Person {
+        name = "Elias";
+        getName() {
+          return this.name;
+        }
+      }
+
+      const eL = new Person();
+      console.log(eL.getName());
+    </script>
+  </body>
+</html>
