@@ -6,6 +6,33 @@
     <title>Iterable object</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      const getRandomNum = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return (Math.random() * (max - min + 1) + min).toFixed(2);
+      };
+      class Iterable {
+        constructor(num) {
+          this.num = num;
+        }
+        [Symbol.iterator](step = 0) {
+          let i = this.num;
+          return {
+            next() {
+              if (step < i) {
+                const randonNum = getRandomNum(0, 1);
+                step++;
+                return { value: randonNum, done: false };
+              } else {
+                return { value: undefined, done: true };
+              }
+            },
+          };
+        }
+      }
+      const it = new Iterable(3);
+      console.log([...it]);
+    </script>
   </body>
 </html>
