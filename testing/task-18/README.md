@@ -16,5 +16,4 @@ URL 2: kodaktor.ru/api2/andba/N
 2. Написать тесты из нескольких кейсов, которые должны проверить вашу догадку.
 
 Результат выполнения показан на скриншоте
-
-![Image alt](https://github.com/norzserge/itmo-tasks/tree/master/testing/task-18/result.png)
+<img src="/result.png" width="400"/>
